@@ -1,0 +1,80 @@
+\documentclass[a4paper,oneside,10pt]{article}
+\usepackage[frenchb]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+%\usepackage{truncate} % package pour troncature de texte dans l'entÍte
+\usepackage{layouts}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{boxedminipage}
+\usepackage{chemfig}
+\usepackage{siunitx}
+%\pagestyle{fancy}
+\fancyhf{} % on efface tout
+%\lhead{Physique-Chimie. Devoir Seconde  \leftmark} %en tete centrÈe ‡ gauche
+%\cfoot{\thepage} %numÈro de la page en bas au centre
+%% On redÈfinit le Style des section sousection poura avoir I/1.a)
+%\renewcommand\thechapter       {\arabic{chapter}}
+\renewcommand\thesection       {\Roman{section}.}
+\renewcommand\thesubsection    {\thesection \arabic{subsection}.}
+\renewcommand\thesubsubsection {\thesubsection \alph{subsubsection})}
+\renewcommand\theparagraph     {\thesubsubsection.\arabic{paragraph}}
+\renewcommand\thesubparagraph  {\theparagraph.\arabic{subparagraph}}
+\setcounter{secnumdepth}{4}
+
+
+\textwidth=18.5cm
+\textheight=25cm
+\marginparsep=5mm %espace marge droite et coprs du texte%
+\marginparwidth=55pt
+\footskip=40pt
+\oddsidemargin= -35pt %espace bord gauche%
+\topmargin=-35pt
+\headsep=-25pt
+
+
+
+%Mise en forme des remarques 
+\theoremstyle{remark}
+\newtheorem*{rem}{\underline{Remarque}}
+\newtheorem*{thm}{\textbf{DÈfinition}}
+
+\newcommand{\rmq}[1]{\begin{rem} #1 \end{rem} }
+
+% deftt deuxièeme version de deft avec création d'un tableau 1case pb reste à définir la longueur
+% du tableau pour le retour à la ligne
+\newcommand{\donnees}[1]{
+\newline  \noindent
+ \begin{tabular}{|p{15cm}|c|}
+\hline 
+\textbf{\emph{DonnÈes : }}#1\tabularnewline
+\hline
+\end{tabular}}
+% C'est la crÈation de la commande deft :
+% un cadre minipage de 10 cm, environnement thÈorËme
+% [1] c'est pour l'argument de la fonction \deft
+\newcommand{\deft}[1]{\newline \linebreak
+\begin{boxedminipage}{150mm} %box sur la largeur de textwidth
+\begin{thm}
+#1 %contenu de la dÈfinition
+\end{thm}
+\end{boxedminipage}
+\linebreak %saut de ligne aprËs la dÈfinition
+}
+%fin du code de deft
+
+%Qqs nouvelles commandes%
+\newcommand{\fiche}[3]{
+	\begin{center}
+		\textsc{#1}\\
+		#2\hfill\textit{#3}
+	\end{center}
+	\hrule\vspace{\baselineskip}
+}
+\newcounter{numeroexo}
+\newcommand{\exo}{\par\noindent\stepcounter{numeroexo}
+	\hspace{-.25cm}\fbox{\textbf{Exercice \arabic{numeroexo}}}\quad}
+%fin des nouvelles commandes
